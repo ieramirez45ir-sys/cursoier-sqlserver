@@ -1,0 +1,9 @@
+{
+  "name": "Curso SQL Server",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [1433, 8978],
+  "postStartCommand": "bash setup.sh"
+}
