@@ -1,0 +1,25 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql2022
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'CursoSQL2026*'
+    ports:
+      - '1433:1433'
+    volumes:
+      - sqldata:/var/opt/mssql
+
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: cloudbeaver
+    ports:
+      - '8978:8978'
+    volumes:
+      - cbdata:/opt/cloudbeaver/workspace
+    depends_on:
+      - sqlserver
+
+volumes:
+  sqldata:
+  cbdata:
